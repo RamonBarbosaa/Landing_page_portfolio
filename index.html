@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramon Barbosa | Full Stack Python Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-soft:#111827;
+      --primary:#38bdf8;
+      --secondary:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    .project a {
+  position: relative; /* Faz o link ficar "na frente" do brilho do card */
+  z-index: 10;        /* Garante que ele seja a camada superior */
+  cursor: pointer;    /* Força a mãozinha de clique */
+}
+
+    /* Background points */
+    canvas{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+    }
+
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:70px;
+      backdrop-filter: blur(12px);
+      background:rgba(15,23,42,.75);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 40px;
+      z-index:10;
+    }
+    header h1{
+      font-size:1.4rem;
+      font-weight:800;
+      color:var(--primary);
+    }
+    nav a{
+      margin-left:25px;
+      text-decoration:none;
+      color:var(--text);
+      font-weight:500;
+      position:relative;
+    }
+    nav a::after{
+      content:'';
+      position:absolute;
+      bottom:-6px;left:0;
+      width:0;height:2px;
+      background:var(--primary);
+      transition:.3s;
+    }
+    nav a:hover::after{width:100%}
+
+    section{
+      min-height:100vh;
+      padding:120px 10vw 80px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:25px;
+    }
+
+    #home h2{
+      font-size:3.2rem;
+      font-weight:800;
+    }
+    #home span{
+      color:var(--secondary);
+      font-size:1.4rem;
+      font-weight:500;
+    }
+
+    .grid{
+      display:grid;
+      gap:30px;
+    }
+
+    .skills{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px}
+
+    .icons{
+      margin-top:15px;
+      font-weight:600;
+      color:var(--primary);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, transparent, rgba(56,189,248,.08), transparent);
+      opacity:0;
+      transition:.4s;
+    }
+
+    .card:hover::before{opacity:1}
+
+    .card h3{margin-bottom:10px;font-size:1.3rem}
+
+    .skill-front h3{color:#38bdf8}
+    .skill-back h3{color:#22c55e}
+    .skill-db h3{color:#f59e0b}
+    .skill-git h3{color:#a78bfa}
+
+    .icons img{
+      width:28px;
+      height:28px;
+    }
+
+    .skill-front .icons div{color:#38bdf8}
+    .skill-back .icons div{color:#22c55e}
+    .skill-db .icons div{color:#f59e0b}
+    .skill-git .icons div{color:#a78bfa}
+
+    .projects{grid-template-columns:repeat(2,1fr)}
+
+    .project{
+      padding:40px;
+    }
+    .project h3{font-size:1.4rem;margin-bottom:10px}
+    .project a{
+      display:inline-block;
+      margin-top:15px;
+      margin-right:15px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .card{
+      background:var(--bg-soft);
+      padding:30px;
+      border-radius:18px;
+      transition:.3s;
+      border:1px solid rgba(255,255,255,.05);
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:var(--primary);
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+      max-width: 900px;
+    }
+
+    .hero-name {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    }
+
+   .hero-role {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #38bdf8;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+     line-height: 1.7;
+     max-width: 720px;
+    color: #d1d5db;
+    }
+    /* CONTACT SECTION */
+#contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contact-text {
+  max-width: 720px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px;
+  background: var(--bg-soft);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.05);
+  text-decoration: none;
+  color: var(--text);
+  transition: .3s;
+}
+
+/* 2. AJUSTEI O CSS PARA OS NOVOS ÍCONES */
+.contact-card i {
+  font-size: 30px;
+  color: var(--primary);
+  width: 34px;
+  text-align: center;
+}
+
+.contact-card strong {
+  font-size: 1.1rem;
+  display: block;
+}
+
+.contact-card span {
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  background: rgba(56,189,248,.08);
+}
+
+.contact-card.highlight {
+  border-color: var(--secondary);
+}
+
+.contact-card.highlight i {
+    color: var(--secondary);
+}
+
+.contact-card.highlight:hover {
+  background: rgba(34,197,94,.12);
+}
+
+
+    footer{
+      padding:60px 10vw;
+      background:#020617;
+      text-align:center;
+    }
+    footer h3{font-size:2rem;color:var(--primary)}
+    footer p{color:var(--muted);margin-top:10px}
+    footer a{color:var(--secondary);text-decoration:none}
+
+
+    @media(max-width:900px){
+      .projects{grid-template-columns:1fr}
+      header{padding:0 20px}
+      #home h2{font-size:2.4rem}
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <h1>Ramon Barbosa</h1>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#skills">Habilidades</a>
+    <a href="#projects">Projetos</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1 class="hero-name">Ramon Barbosa</h1>
+
+  <h2 class="hero-role">
+    Full Stack Python Developer
+  </h2>
+
+  <p class="hero-description">
+    Desenvolvedor com perfil analítico, focado na criação de aplicações seguras,
+    eficientes e bem estruturadas. Experiência em transformar problemas complexos
+    em soluções funcionais, com atenção à performance, segurança e qualidade do código.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Habilidades</h2>
+  <p>Stack organizada por domínio, utilizando ícones SVG para leitura rápida e visual profissional.</p>
+
+  <div class="grid skills">
+
+    <div class="card skill-front">
+      <h3>Front-end</h3>
+      <p>Criação de interfaces modernas, responsivas e acessíveis.</p>
+      <div class="icons">
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />HTML5</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />CSS3</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" />JavaScript</div>
+      </div>
+    </div>
+
+    <div class="card skill-back">
+      <h3>Back-end</h3>
+      <p>Aplicações robustas com foco em regras de negócio.</p>
+      <div class="icons">
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />Python</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />Django</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg" alt="DRF" />REST</div>
+      </div>
+    </div>
+
+    <div class="card skill-db">
+      <h3>Banco de Dados</h3>
+      <p>Modelagem e persistência de dados.</p>
+      <div class="icons">
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="Postgres" />PostgreSQL</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" />SQLite</div>
+      </div>
+    </div>
+
+    <div class="card skill-git">
+      <h3>Versionamento</h3>
+      <p>Controle de código e colaboração.</p>
+      <div class="icons">
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />Git</div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />GitHub</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projetos em Destaque</h2>
+  <div class="grid projects">
+    
+    <div class="card project" style="border-left: 4px solid var(--secondary);">
+      <span style="color: var(--secondary); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Destaque Recente</span>
+      <h3>PDV Tech - Frente de Caixa</h3>
+      <p>Sistema completo de ponto de venda para lojas de informática. Inclui controle de estoque real-time, dashboard de faturamento e segurança via Django Authentication.</p>
+      <small>Stack: Python, Django, SQLite, CSS Industrial</small><br>
+      <a href="https://github.com/RamonBarbosaa/pdv_django_informatica" target="_blank"><i class="fa-brands fa-github"></i> Código Fonte</a>
+    </div>
+
+    <div class="card project">
+      <h3>Dashboard Administrativo</h3>
+      <p>Interface intuitiva para gestão de dados corporativos com foco em User Experience e métricas de desempenho.</p>
+      <small>Stack: Python, Django, Charts.js</small><br>
+      <a href=https://github.com/RamonBarbosaa target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+    <div class="card project">
+      <h3>API RESTful Profissional</h3>
+      <p>Arquitetura de API com Django REST Framework, implementando autenticação JWT e documentação Swagger.</p>
+      <small>Stack: Python, DRF, PostgreSQL</small><br>
+      <a href="https://github.com/RamonBarbosaa" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+    <div class="card project">
+      <h3>Portfolio / Landing Page</h3>
+      <p>Esta página que você está vendo, desenvolvida com foco em performance e animações fluidas via Canvas API.</p>
+      <small>Stack: HTML5, CSS3, JavaScript Pure</small><br>
+      <a href="https://github.com/RamonBarbosaa" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contato</h2>
+
+  <p class="contact-text">
+    Estou aberto a oportunidades, projetos e conexões profissionais.
+    Se quiser conversar sobre desenvolvimento, tecnologia ou propostas,
+    escolha um dos canais abaixo.
+  </p>
+
+  <div class="contact-grid">
+
+    <a class="contact-card"
+       href="https://www.linkedin.com/in/ramon-barbosa-97b89825b"
+       target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+      <div>
+        <strong>LinkedIn</strong>
+        <span>Perfil profissional</span>
+      </div>
+    </a>
+
+    <a class="contact-card"
+       href="https://github.com/SEU-GITHUB"
+       target="_blank">
+      <i class="fa-brands fa-github"></i>
+      <div>
+        <strong>GitHub</strong>
+        <span>Repositórios e projetos</span>
+      </div>
+    </a>
+
+    <a class="contact-card highlight"
+       href="https://wa.me/5583986375870"
+       target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div>
+        <strong>WhatsApp</strong>
+        <span>Contato direto e rápido</span>
+      </div>
+    </a>
+
+    <a class="contact-card"
+       href="mailto:ramonbarbosa.ded@gmail.com">
+      <i class="fa-solid fa-envelope"></i>
+      <div>
+        <strong>Email</strong>
+        <span>Contato formal</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <h3>Ramon Barbosa</h3>
+  <p>Full Stack Python Developer</p>
+</footer>
+
+<script>
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+let w,h,points=[];
+
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
+}
+window.onresize=resize;resize();
+
+for(let i=0;i<80;i++){
+  points.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});
+}
+
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  points.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>w)p.vx*=-1;
+    if(p.y<0||p.y>h)p.vy*=-1;
+    ctx.fillStyle='#38bdf8';
+    ctx.fillRect(p.x,p.y,2,2);
+  });
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      let d=Math.hypot(points[i].x-points[j].x,points[i].y-points[j].y);
+      if(d<120){
+        ctx.strokeStyle='rgba(56,189,248,.15)';
+        ctx.beginPath();
+        ctx.moveTo(points[i].x,points[i].y);
+        ctx.lineTo(points[j].x,points[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
