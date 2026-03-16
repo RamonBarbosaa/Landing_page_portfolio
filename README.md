@@ -19,12 +19,14 @@ Uma Landing Page minimalista e moderna, desenvolvida com foco em performance e e
 
 ## 📂 Como visualizar
 O projeto está publicado e pode ser acessado através do link abaixo:
-👉 **[ramonbarbosaa.github.io/portfolio/](https://ramonbarbosaa.github.io/portfolio/)**
+👉 **[https://ramonbarbosaa.github.io/Landing_page_portfolio/)**
 
 ---
 
 ## 📈 Meus Projetos Principais
 Atualmente, meu maior destaque é o **[PDV Tech](https://github.com/RamonBarbosaa/pdv_django_informatica)**, um sistema de gestão de vendas completo desenvolvido em Django, que resolve problemas reais de estoque e segurança.
+
+## 📈 Insight - PB Dashboard de demonstração de dados ficticios da area de segurança publica da Paraíba, o qual é atualizado de forma automatica e conta com metricas indivuais por municipio para uma analise mais apronfundada dos gestores, sistema desenvolvido para demonstração de conhecimento em API e manipulação de dados através da linguagem Python. **[https://github.com/RamonBarbosaa/Insight-PB.git]**.
 
 ## ✉️ Contato
 - **LinkedIn:** [Acesse meu perfil](https://www.linkedin.com/in/ramon-barbosa-97b89825b)
