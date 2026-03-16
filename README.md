@@ -1,37 +1,86 @@
 # 🌐 Ramon Barbosa | Full Stack Python Developer
 
-Bem-vindo ao repositório do meu portfólio pessoal! Esta é a minha vitrine digital, onde apresento meus projetos, minhas habilidades técnicas e os canais para contato.
-
-## 🚀 O Projeto
-Uma Landing Page minimalista e moderna, desenvolvida com foco em performance e experiência do usuário (UX). O site utiliza animações fluidas e um design "Dark Industrial" para transmitir profissionalismo e afinidade com tecnologia.
-
-### ✨ Funcionalidades:
-- **Design Responsivo:** Adaptado para dispositivos móveis, tablets e desktops.
-- **Background Animado:** Implementação de uma rede de pontos interativa utilizando **Canvas API** e JavaScript puro.
-- **Seção de Habilidades:** Organização visual das stacks de Front-end, Back-end e Banco de Dados.
-- **Vitrine de Projetos:** Cards interativos com links diretos para os repositórios.
-
-## 🛠️ Tecnologias Utilizadas
-- **HTML5:** Estrutura semântica para melhor SEO.
-- **CSS3:** Estilização avançada com Variáveis CSS (Custom Properties) e Flexbox/Grid.
-- **JavaScript (Vanilla):** Lógica das animações de fundo e interatividade sem dependência de frameworks pesados.
-- **Font Awesome:** Ícones vetoriais para uma interface limpa.
-
-## 📂 Como visualizar
-O projeto está publicado e pode ser acessado através do link abaixo:
-👉 **[https://ramonbarbosaa.github.io/Landing_page_portfolio/)**
+Bem-vindo ao repositório do meu **portfólio pessoal**!  
+Esta é minha vitrine digital, onde apresento meus projetos, minhas habilidades técnicas e meus canais de contato.
 
 ---
 
-## 📈 Meus Projetos Principais
-Atualmente, meu maior destaque é o **[PDV Tech](https://github.com/RamonBarbosaa/pdv_django_informatica)**, um sistema de gestão de vendas completo desenvolvido em Django, que resolve problemas reais de estoque e segurança.
+# 🚀 Sobre o Projeto
 
-## 📈 Insight - PB Dashboard de demonstração de dados ficticios da area de segurança publica da Paraíba, o qual é atualizado de forma automatica e conta com metricas indivuais por municipio para uma analise mais apronfundada dos gestores, sistema desenvolvido para demonstração de conhecimento em API e manipulação de dados através da linguagem Python. **[https://github.com/RamonBarbosaa/Insight-PB.git]**.
+Uma **Landing Page minimalista e moderna**, desenvolvida com foco em **performance** e **experiência do usuário (UX)**.
 
-## ✉️ Contato
-- **LinkedIn:** [Acesse meu perfil](https://www.linkedin.com/in/ramon-barbosa-97b89825b)
-- **Email:** ramonbarbosa.dev@gmail.com
-- **WhatsApp:** [Enviar mensagem](https://wa.me/5583986375870)
+O site utiliza **animações fluidas** e um design **Dark Industrial**, transmitindo profissionalismo e afinidade com tecnologia.
 
 ---
-*Desenvolvido com ☕ e Python por Ramon Barbosa.*
+
+# ✨ Funcionalidades
+
+- 📱 **Design Responsivo**  
+  Adaptado para dispositivos móveis, tablets e desktops.
+
+- 🌌 **Background Animado**  
+  Implementação de uma rede de pontos interativa utilizando **Canvas API** e **JavaScript puro**.
+
+- 🧠 **Seção de Habilidades**  
+  Organização visual das stacks de **Front-end**, **Back-end** e **Banco de Dados**.
+
+- 💼 **Vitrine de Projetos**  
+  Cards interativos com links diretos para os repositórios.
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+- **HTML5** — Estrutura semântica para melhor SEO  
+- **CSS3** — Estilização com Variáveis CSS, Flexbox e Grid  
+- **JavaScript (Vanilla)** — Animações e interatividade sem frameworks pesados  
+- **Font Awesome** — Ícones vetoriais
+
+---
+
+# 🌍 Acesse o Projeto
+
+O projeto está publicado e pode ser acessado no link abaixo:
+
+👉 **https://ramonbarbosaa.github.io/Landing_page_portfolio/**
+
+---
+
+# 📈 Projetos em Destaque
+
+### 🖥️ PDV Tech
+Sistema completo de **gestão de vendas desenvolvido em Django**, voltado para resolver problemas reais de **controle de estoque, segurança e organização comercial**.
+
+🔗 Repositório:  
+https://github.com/RamonBarbosaa/pdv_django_informatica
+
+---
+
+### 📊 Insight PB
+Dashboard de **dados fictícios da segurança pública da Paraíba**, atualizado automaticamente e com **métricas individuais por município** para análise estratégica.
+
+Projeto desenvolvido para demonstrar conhecimento em:
+
+- Consumo de **APIs**
+- **Manipulação de dados com Python**
+- Estruturação de **Dashboards analíticos**
+
+🔗 Repositório:  
+https://github.com/RamonBarbosaa/Insight-PB
+
+---
+
+# ✉️ Contato
+
+💼 **LinkedIn**  
+https://www.linkedin.com/in/ramon-barbosa-97b89825b
+
+📧 **Email**  
+ramonbarbosa.dev@gmail.com
+
+📱 **WhatsApp**  
+https://wa.me/5583986375870
+
+---
+
+⭐ *Desenvolvido com café ☕ e Python por Ramon Barbosa.*
