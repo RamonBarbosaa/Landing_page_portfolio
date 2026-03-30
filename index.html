@@ -4,355 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ramon Barbosa | Full Stack Python Developer</title>
+  <link rel="shortcut icon" href="img/logo.ico.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    :root{
-      --bg:#0f172a;
-      --bg-soft:#111827;
-      --primary:#38bdf8;
-      --secondary:#22c55e;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-    }
-    
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-    }
-    .hero-name,
-
-
-    .project a {
-      position: relative; 
-      z-index: 10;        
-      cursor: pointer;    
-    }
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:all .8s ease;
-    }
-
-    .reveal.active{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    .project-card{
-      transition:all .3s ease;
-    }
-
-    .project-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 15px 40px rgba(0,0,0,.6);
-    }
-
-    .cta-btn{
-      display:inline-block;
-      margin-top:25px;
-      padding:12px 26px;
-      background:#38bdf8;
-      color:#000;
-      border-radius:6px;
-      font-weight:600;
-      text-decoration:none;
-      transition:.3s;
-    }
-
-
-
-    /* Background points */
-    canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-    }
-
-    header{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:70px;
-      backdrop-filter: blur(12px);
-      background:rgba(15,23,42,.75);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 40px;
-      z-index:9999;
-    }
-    header h1{
-      font-size:1.4rem;
-      font-weight:800;
-      color:var(--primary);
-    }
-    nav a{
-      margin-left:25px;
-      text-decoration:none;
-      color:var(--text);
-      font-weight:500;
-      position:relative;
-    }
-    nav a::after{
-      content:'';
-      position:absolute;
-      bottom:-6px;left:0;
-      width:0;height:2px;
-      background:var(--primary);
-      transition:.3s;
-    }
-    nav a:hover::after{width:100%}
-
-    section{
-      min-height:100vh;
-      padding:120px 10vw 80px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:25px;
-    }
-
-    #home h2{
-      font-size:3.2rem;
-      font-weight:800;
-    }
-    #home span{
-      color:var(--secondary);
-      font-size:1.4rem;
-      font-weight:500;
-    }
-
-    .grid{
-      display:grid;
-      gap:30px;
-    }
-
-    .skills{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px}
-
-    .icons{
-      margin-top:15px;
-      font-weight:600;
-      color:var(--primary);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .card{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg, transparent, rgba(56,189,248,.08), transparent);
-      opacity:0;
-      transition:.4s;
-    }
-
-    .card:hover::before{opacity:1}
-
-    .card h3{margin-bottom:10px;font-size:1.3rem}
-
-    .skill-front h3{color:#38bdf8}
-    .skill-back h3{color:#22c55e}
-    .skill-db h3{color:#f59e0b}
-    .skill-git h3{color:#a78bfa}
-
-    .icons img{
-      width:28px;
-      height:28px;
-    }
-
-    .skill-front .icons div{color:#38bdf8}
-    .skill-back .icons div{color:#22c55e}
-    .skill-db .icons div{color:#f59e0b}
-    .skill-git .icons div{color:#a78bfa}
-
-    .projects{grid-template-columns:repeat(2,1fr)}
-
-    .project{
-      padding:40px;
-    }
-    .project h3{font-size:1.4rem;margin-bottom:10px}
-    .project a{
-      display:inline-block;
-      margin-top:15px;
-      margin-right:15px;
-      color:var(--primary);
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .card{
-      background:var(--bg-soft);
-      padding:30px;
-      border-radius:18px;
-      transition:.3s;
-      border:1px solid rgba(255,255,255,.05);
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:var(--primary);
-    }
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.2rem;
-      max-width: 900px;
-    }
-
-    .hero-name {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -1px;
-    }
-
-   .hero-role {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #38bdf8;
-    }
-
-    .hero-description {
-        font-size: 1.05rem;
-     line-height: 1.7;
-     max-width: 720px;
-    color: #d1d5db;
-    }
-    /* CONTACT SECTION */
-#contact {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-}
-
-.contact-text {
-  max-width: 720px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 10px;
-}
-
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 28px;
-  background: var(--bg-soft);
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.05);
-  text-decoration: none;
-  color: var(--text);
-  transition: .3s;
-}
-
-/* 2. AJUSTEI O CSS PARA OS NOVOS ÍCONES */
-.contact-card i {
-  font-size: 30px;
-  color: var(--primary);
-  width: 34px;
-  text-align: center;
-}
-
-.contact-card strong {
-  font-size: 1.1rem;
-  display: block;
-}
-
-.contact-card span {
-  font-size: .95rem;
-  color: var(--muted);
-}
-
-.contact-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--primary);
-  background: rgba(56,189,248,.08);
-}
-
-.contact-card.highlight {
-  border-color: var(--secondary);
-}
-
-.contact-card.highlight i {
-    color: var(--secondary);
-}
-
-.contact-card.highlight:hover {
-  background: rgba(34,197,94,.12);
-}
-
-
-    footer{
-      padding:60px 10vw;
-      background:#020617;
-      text-align:center;
-    }
-    footer h3{font-size:2rem;color:var(--primary)}
-    footer p{color:var(--muted);margin-top:10px}
-    footer a{color:var(--secondary);text-decoration:none}
-
-    .menu-toggle{
-      display:none;
-      font-size:28px;
-      cursor:pointer;
-    }
-
-
-    @media(max-width:900px){
-
-  .projects{grid-template-columns:1fr}
-  header{padding:0 20px}
-  #home h2{font-size:2.4rem}
-
-  .menu-toggle{
-    display:block;
-    z-index:10000;
-    position: relative;
-  }
-
-  #nav-menu{
-  position:fixed;
-  top:70px;
-  right:0;
-  background:var(--bg-soft);
-  width:220px;
-  flex-direction:column;
-  display:none;
-  padding:20px;
-  border-left:1px solid rgba(255,255,255,.05);
-  z-index:9999;
-}
-
-  #nav-menu a{
-    margin:10px 0;
-  }
-
-  #nav-menu.active{
-    display:flex;
-  }
-
-}
-  </style>
 </head>
 <body>
 
@@ -392,7 +49,7 @@
 
 <section id="skills" class="reveal">
   <h2>Habilidades</h2>
-  <p>Stack organizada por domínio, utilizando ícones SVG para leitura rápida e visual profissional.</p>
+  <p>Ecossistema tecnológico focado na criação de aplicações escaláveis, seguras e centradas na experiência do usuário, do banco de dados à interface.</p>
 
   <div class="grid skills">
 
@@ -446,21 +103,24 @@
       <h3>PDV Tech - Frente de Caixa</h3>
       <p>Sistema completo de ponto de venda para lojas de informática. Inclui controle de estoque real-time, dashboard de faturamento e segurança via Django Authentication.</p>
       <small>Stack: Python, Django, SQLite, CSS Industrial</small><br>
-      <a href="https://github.com/RamonBarbosaa/pdv_django_informatica" target="_blank"><i class="fa-brands fa-github"></i> Código Fonte</a>
+      <a href="https://github.com/RamonBarbosaa/pdv_django_informatica" target="_blank"><i class="fa-brands fa-github"></i> Github</a>
     </div>
 
     <div class="card project">
       <h3>Dashboard Administrativo</h3>
-      <p>Interface intuitiva para gestão de dados corporativos com foco em User Experience e métricas de desempenho.</p>
-      <small>Stack: Python, Django, Charts.js</small><br>
+      <p>Plataforma de BI desenvolvida para análise criminal e monitoramento tático no estado da Paraíba. O sistema transforma dados brutos 
+        em mapas de calor e dashboards dinâmicos, auxiliando na tomada de decisão estratégica e na identificação de manchas criminais em tempo real.</p>
+      <small>Stack: Django Ninja, React, Tailwind CSS, Chart.js</small><br>
       <a href=https://github.com/RamonBarbosaa/Insight-PB.git target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     </div>
 
     <div class="card project">
       <h3>API RESTful Profissional</h3>
-      <p>Arquitetura de API com Django REST Framework, implementando autenticação JWT e documentação Swagger.</p>
+      <p>Sistema escalável para gestão de ativos em tempo real. Desenvolvi uma API RESTful completa que gerencia desde
+         a geolocalização de veículos até o controle de alertas de segurança e integração de pagamentos via Pix.</p>
       <small>Stack: Python, DRF, PostgreSQL</small><br>
-      <a href="https://github.com/RamonBarbosaa" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://github.com/RamonBarbosaa/sentinel-track.git" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://ramonbarbosaa.github.io/sentinel-track/" target="_blank"><i class="fa-brands fa-github"></i> Page</a>
     </div>
 
     <div class="card project">
@@ -549,7 +209,6 @@ function revealOnScroll(){
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
-/* FECHAR MENU AO CLICAR EM UM LINK */
 
 document.querySelectorAll("#nav-menu a").forEach(link => {
   link.addEventListener("click", () => {
@@ -557,18 +216,12 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
   });
 });
 
-
-/* MENU HAMBURGUER MOBILE */
-
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
 menuToggle.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 });
-
-
-/* SEU SCRIPT ORIGINAL DO CANVAS */
 
 const canvas=document.getElementById('bg');
 const ctx=canvas.getContext('2d');
